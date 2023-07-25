@@ -1,0 +1,30 @@
+Adaboost();
+使用决策树作为弱分类器
+
+Adaboost(base_factory* factory);
+自定义弱分类器类型
+参数解释：
+    factory为弱分类器的工厂类型,该类型必须继承于base_factory
+
+virtual int train(torch::Tensor* samples);
+训练模型
+参数解释：
+    samples[i]为第i个样本
+返回值：
+    错误编码,具体参考types.h
+
+virtual int test(const torch::Tensor& sample, float& result);
+使用模型进行预测
+参数解释：
+    sample为需要进行预测的样本
+    result为输出参数,预测的结果
+返回值：
+    错误编码,具体参考types
+
+virtual int set_error(const float error);
+设置最大允许的误差
+参数解释：
+    error为需要设置的最大允许的误差
+返回值：
+    错误编码,具体参考types
+
