@@ -2,8 +2,10 @@
 #include"../base.h"
 #include<vector>
 #include<algorithm>
+#pragma once
 #include<cmath>
 #include<utility>
+#include"../CART/CART.h"
 
 namespace wx{
 namespace regression{
@@ -12,9 +14,8 @@ class Adaboost : public base_algorithm{
 public:
     Adaboost(base_factory* factory);
     ~Adaboost();
-    virtual int train(const torch::Tensor& samples, const torch::Tensor& labels, const torch::Tensor& samples_power);
-    virtual int test(const torch::Tensor& sample, float& result);
-    virtual int set_error(const float error);
+    virtual int train(const torch::Tensor& samples, const torch::Tensor& labels, const torch::Tensor& samples_power) override;
+    virtual int test(const torch::Tensor& sample, float& result) override;
 private:
     std::vector<std::pair<base_algorithm*,float>> weak_;
     base_factory* factory_ = nullptr;

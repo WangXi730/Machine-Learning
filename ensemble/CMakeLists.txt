@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.26.3 FATAL_ERROR)
+SET(CMAKE_C_COMPILER /usr/local/bin/gcc)
+SET(CMAKE_CXX_COMPILER /usr/local/bin/g++)
+
+PROJECT(ensemble_test)
+
+find_package(Torch REQUIRED)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS} -std=c++20")
+
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}/bin)
+
+
+
+add_subdirectory(${PROJECT_SOURCE_DIR}/src)

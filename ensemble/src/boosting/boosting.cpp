@@ -79,10 +79,10 @@ namespace regression{
     Adaboost_factory::Adaboost_factory(base_factory* factory){
         factory_ = factory;
         if(factory_ == nullptr){
-
+            factory_ = rtf;
         }
     }
-    virtual Adaboost_factory::Adaboost* create_alg(){
+    Adaboost* Adaboost_factory::create_alg(){
         return new Adaboost(factory_);
     }
 }
