@@ -2,7 +2,7 @@
 
 
 int main(){
-    auto tree = wx::rtf.create_alg();
-    delete tree;
+    wx::regression::DecisionTree* t = wx::rtf.create_alg();
+    delete t;
     return 0;
 }
